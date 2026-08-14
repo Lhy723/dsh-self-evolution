@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-quality",
+  "title": "Demo agent quality benchmark",
+  "frozen": true,
+  "description": "Small demonstration only. Copy this benchmark outside the target workspace before running it.",
+  "evaluatorInstructions": "Score observable task behavior. Public feedback must not reveal private pass conditions.",
+  "cases": [
+    {
+      "id": "concise-answer",
+      "statementFile": "public/concise-answer.md",
+      "rubricFile": "private/concise-answer.md",
+      "weight": 1,
+      "tags": ["communication"]
+    },
+    {
+      "id": "verification-plan",
+      "statementFile": "public/verification-plan.md",
+      "rubricFile": "private/verification-plan.md",
+      "weight": 1,
+      "tags": ["software-engineering", "verification"]
+    }
+  ]
+}

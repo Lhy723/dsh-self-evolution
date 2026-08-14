@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Local validation scratch (real-launcher smoke profile home)
+.dsh-test/
+.npm-cache/
+
+# macOS
+.DS_Store
+
+# Release artifacts are regenerated with `npm pack`
+*.tgz
+dsh-self-evolution-SHA256SUMS.txt

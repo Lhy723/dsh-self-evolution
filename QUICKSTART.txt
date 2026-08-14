@@ -1,0 +1,18 @@
+dsh-self-evolution 0.1.0
+
+1. Install into a DeepSeek Harness profile (the package declares dsh.bundle):
+   dsh plugin --profile <name> add ./dsh-self-evolution-0.1.0.tgz
+
+2. Confirm the bundle patch composed into the profile:
+   dsh --profile <name> --dump-config
+   ...should print the `self-evolution` row under "# == dsh-self-evolution".
+
+3. The base profile must provide tools, subagents, and the spawn provider
+   (@deepseek-ai/dsh-base does). Read README.md for Profile and Benchmark
+   formats, and examples/config/self-evolution.row.yml for the isolated
+   agent-preset mount alternative.
+
+Validation: strict TypeScript build against the real 0.1.0-rc.6 declarations,
+9/9 Node tests, real dsh-tools/dsh-invariants registration smoke, and real
+launcher --dump-config composition all pass.
+Live model E2E requires a destination profile with credentials.

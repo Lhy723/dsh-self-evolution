@@ -1,0 +1,29 @@
+# dsh-self-evolution bundle patch.
+#
+# Installed with `dsh plugin --profile <name> add <this-package>`, this patch is
+# applied over the profile entry list (after @deepseek-ai/dsh-base, which already
+# provides `tools` and `subagents`). A later patch layer addresses this row by id
+# `self-evolution`; the last write wins per row and replaces the whole `config`.
+#
+# The row publishes the `evolution` service at the profile (host) plane, which is
+# the supported mount point for a third-party bundle. Do NOT paste this row into
+# an agent preset's agent.cordis.yml as-is: a preset must not publish a
+# process-global service, so the preset mount rejects it.
+- insert:
+    - id: self-evolution
+      name: dsh-self-evolution
+      config:
+        stateRoot: ~/.dsh/self-evolution
+        subagentProvider: spawn
+        maxParallelEvaluations: 4
+        minImprovement: 0
+        maxCandidateOperations: 12
+        maxCandidateBytes: 262144
+        evaluationRetries: 1
+        evaluatorRetries: 2
+        optimizerRetries: 1
+        lockStaleMs: 1800000
+        allowBenchmarkInsideWorkspace: false
+        allowModelRouteMutation: false
+        toolPrefix: evolution
+        maxDepth: 4

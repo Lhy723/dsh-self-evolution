@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "version": 1,
+  "agentOptions": {
+    "maxTokens": 8192
+  },
+  "toolFilter": {
+    "deny": [
+      "cordis_define",
+      "cordis_run",
+      "cordis_undefine"
+    ]
+  },
+  "metadata": {
+    "example": true
+  }
+}

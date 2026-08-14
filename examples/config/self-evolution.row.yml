@@ -1,0 +1,28 @@
+# Alternative mount: a per-session agent preset (agent.cordis.yml).
+#
+# The primary, supported install path is the bundle flow: the package ships a
+# dsh.bundle manifest and a cordis.patch.yml, and `dsh plugin --profile <name>
+# add <this-package>` reconciles it into the profile layer stack. Use THAT
+# mechanism; no row is added by hand.
+#
+# If you intentionally want the tools mounted for exactly one agent preset,
+# the row publishes the process-global `evolution` service, so a preset must
+# wrap it in a group with an isolate realm. A loose row is rejected by the
+# preset mount audit (and would collide across sessions). `true` gives each
+# mounting session a private `evolution` instance; the plugin's file locks
+# still serialize concurrent runs on the same profile.
+- id: self-evolution
+  name: cordis:group
+  group: true
+  isolate:
+    evolution: true
+  config:
+    - id: self-evolution-plugin
+      name: dsh-self-evolution
+      config:
+        stateRoot: ~/.dsh/self-evolution
+        subagentProvider: spawn
+        maxParallelEvaluations: 4
+        minImprovement: 0
+        allowBenchmarkInsideWorkspace: false
+        allowModelRouteMutation: false

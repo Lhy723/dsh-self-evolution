@@ -1,0 +1,72 @@
+{
+  "name": "dsh-self-evolution",
+  "version": "0.1.0",
+  "description": "Benchmark-driven self-evolution plugin for DeepSeek Harness: evaluate, optimize, snapshot, accept or roll back.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./core": {
+      "types": "./dist/engine.d.ts",
+      "default": "./dist/engine.js"
+    },
+    "./invariant": {
+      "types": "./dist/invariant.d.ts",
+      "default": "./dist/invariant.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "dist/",
+    "cordis.patch.yml",
+    "examples/",
+    "scripts/",
+    "README.md",
+    "DESIGN.md",
+    "SECURITY.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "COMPATIBILITY.md",
+    "BUILD_REPORT.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "npm run build:validation && node --test tests/*.test.mjs",
+    "pack:local": "npm pack",
+    "build:validation": "npm run clean && tsc -p tsconfig.validation.json"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-agent": "^0.1.0-rc.5",
+    "@deepseek-ai/dsh-llm": "^0.1.0-rc.5",
+    "@deepseek-ai/dsh-subagent": "^0.1.0-rc.5",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.5",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "cordis",
+    "agent",
+    "evaluation",
+    "self-improvement",
+    "benchmark"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.3"
+  }
+}
