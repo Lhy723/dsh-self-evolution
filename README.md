@@ -364,7 +364,7 @@ npm pack                               # 产出发布 tarball
 2. **真实类型构建**：以发布版 `@deepseek-ai/*@0.1.0-rc.6` 的声明做严格构建，覆盖 `defineTool`、`ctx.subagents.start` 完整请求面、`Session.header.cwd`、`ObjectJsonSchema` 子集。
 3. **真实 runtime 冒烟**：用真实注册表挂载本插件，验证四个工具注册、`./invariant` 伴侣注册、fiber dispose 后零泄漏（HMR 安全），并由真实 launcher 组合 bundle patch。
 
-尚未执行的只有带模型凭据的端到端运行；目标 profile 的验收步骤见 [`COMPATIBILITY.md`](COMPATIBILITY.md)，完整构建记录见 [`BUILD_REPORT.md`](BUILD_REPORT.md)。
+尚未执行的只有带模型凭据的端到端运行；部署到自己的 profile 后，可按 [`COMPATIBILITY.md`](COMPATIBILITY.md) 的验收步骤验证，完整构建记录见 [`BUILD_REPORT.md`](BUILD_REPORT.md)。
 
 ## 贡献
 

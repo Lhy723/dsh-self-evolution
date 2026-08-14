@@ -1,18 +1,36 @@
 dsh-self-evolution 0.1.0
+A benchmark-driven self-evolution bundle for DeepSeek Harness.
 
-1. Install into a DeepSeek Harness profile (the package declares dsh.bundle):
-   dsh plugin --profile <name> add ./dsh-self-evolution-0.1.0.tgz
+Install (any one):
 
-2. Confirm the bundle patch composed into the profile:
-   dsh --profile <name> --dump-config
-   ...should print the `self-evolution` row under "# == dsh-self-evolution".
+  # published to npm
+  dsh plugin --profile <name> add dsh-self-evolution
 
-3. The base profile must provide tools, subagents, and the spawn provider
-   (@deepseek-ai/dsh-base does). Read README.md for Profile and Benchmark
-   formats, and examples/config/self-evolution.row.yml for the isolated
-   agent-preset mount alternative.
+  # straight from GitHub
+  dsh plugin --profile <name> add github:Lhy723/dsh-self-evolution
 
-Validation: strict TypeScript build against the real 0.1.0-rc.6 declarations,
-9/9 Node tests, real dsh-tools/dsh-invariants registration smoke, and real
-launcher --dump-config composition all pass.
-Live model E2E requires a destination profile with credentials.
+  # local tarball
+  dsh plugin --profile <name> add ./dsh-self-evolution-0.1.0.tgz
+
+Verify:
+
+  dsh --profile <name> --dump-config
+  # ...should print the `self-evolution` row under "# == dsh-self-evolution".
+
+Requirements:
+
+  - `dsh` and `pnpm` on PATH (the `dsh plugin` command forwards to pnpm);
+  - the profile provides tools, subagents, and the spawn provider
+    (@deepseek-ai/dsh-base does).
+
+Next:
+
+  Read README.md for Profile and Benchmark formats, the tool reference, and
+  the configuration table. examples/config/self-evolution.row.yml shows the
+  alternative isolated agent-preset mount.
+
+Validation shipped with this release: strict TypeScript build against the
+published 0.1.0-rc.6 declarations, 9/9 Node tests, a real dsh-tools /
+dsh-invariants registration smoke, and a real-launcher --dump-config
+composition check. Live model runs require a profile with credentials; see
+COMPATIBILITY.md for the acceptance steps.
