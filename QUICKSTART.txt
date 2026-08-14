@@ -1,4 +1,4 @@
-dsh-self-evolution 0.1.0
+dsh-self-evolution 0.1.1
 A benchmark-driven self-evolution bundle for DeepSeek Harness.
 
 Install (any one):
@@ -10,7 +10,7 @@ Install (any one):
   dsh plugin --profile <name> add github:Lhy723/dsh-self-evolution
 
   # local tarball
-  dsh plugin --profile <name> add ./dsh-self-evolution-0.1.0.tgz
+  dsh plugin --profile <name> add ./dsh-self-evolution-0.1.1.tgz
 
 Verify:
 

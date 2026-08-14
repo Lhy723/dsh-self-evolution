@@ -63,10 +63,10 @@ dsh plugin --profile web add dsh-self-evolution
 dsh plugin --profile web add github:Lhy723/dsh-self-evolution
 
 # 方式三：本地 tarball
-dsh plugin --profile web add ./dsh-self-evolution-0.1.0.tgz
+dsh plugin --profile web add ./dsh-self-evolution-0.1.1.tgz
 ```
 
-npm 包：[dsh-self-evolution](https://www.npmjs.com/package/dsh-self-evolution)（当前版本 `0.1.0`）。
+npm 包：[dsh-self-evolution](https://www.npmjs.com/package/dsh-self-evolution)（当前版本 `0.1.1`）。
 
 `dsh plugin` 会把包安装进 profile 目录，并把包名追加进 `dsh.profile.bundles`；启动时 bundle 的 patch 应用在 `@deepseek-ai/dsh-base` 之后。无论用哪种 spec（registry 名 / git / tarball），reconcile 都会按真实包名 `dsh-self-evolution` 记录，后续 `dsh plugin ... update` 正常工作。
 

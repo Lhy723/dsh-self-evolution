@@ -63,10 +63,10 @@ dsh plugin --profile web add dsh-self-evolution
 dsh plugin --profile web add github:Lhy723/dsh-self-evolution
 
 # Option 3: local tarball
-dsh plugin --profile web add ./dsh-self-evolution-0.1.0.tgz
+dsh plugin --profile web add ./dsh-self-evolution-0.1.1.tgz
 ~~~
 
-Package: [dsh-self-evolution](https://www.npmjs.com/package/dsh-self-evolution), current version 0.1.0.
+Package: [dsh-self-evolution](https://www.npmjs.com/package/dsh-self-evolution), current version 0.1.1.
 
 The plugin installs into the profile directory and appends its name to dsh.profile.bundles. At startup, its patch is applied after @deepseek-ai/dsh-base. Registry, Git, and tarball specs all reconcile to the real package name, so later dsh plugin ... update commands work normally.
 

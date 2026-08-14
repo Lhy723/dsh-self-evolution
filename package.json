@@ -1,6 +1,6 @@
 {
   "name": "dsh-self-evolution",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Benchmark-driven self-evolution plugin for DeepSeek Harness: evaluate, optimize, snapshot, accept or roll back.",
   "type": "module",
   "license": "MIT",

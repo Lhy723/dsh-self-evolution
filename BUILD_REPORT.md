@@ -1,9 +1,9 @@
 # Build report
 
-This file records what a release build of `dsh-self-evolution@0.1.0` was
+This file records what a release build of `dsh-self-evolution@0.1.1` was
 validated against, so contributors and reviewers can reproduce the checks.
 
-- Package: `dsh-self-evolution@0.1.0`
+- Package: `dsh-self-evolution@0.1.1`
 - Build date: 2026-08-14
 - TypeScript: 5.8.3
 - Node used for validation: 24.14.1
