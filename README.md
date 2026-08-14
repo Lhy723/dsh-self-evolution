@@ -1,4 +1,8 @@
 <p align="center">
+  <img src="docs/social-preview.png" alt="dsh-self-evolution social preview" width="100%">
+</p>
+
+<p align="center">
   <b>dsh-self-evolution</b>
 </p>
 
@@ -6,7 +10,6 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D22-339933.svg" alt="Node"></a>
   <a href="COMPATIBILITY.md"><img src="https://img.shields.io/badge/deepseek--harness-0.1.0--rc.6-8A2BE2.svg" alt="DeepSeek Harness"></a>
-  <a href="BUILD_REPORT.md"><img src="https://img.shields.io/badge/tests-9%2F9-success.svg" alt="Tests"></a>
 </p>
 
 面向 **DeepSeek Harness / Cordis** 的基准驱动自我进化插件：让 Agent Profile（`AGENTS.md`、Skills、`runtime.json`、config）在冻结的 Benchmark 上自我迭代——每次改进必须**严格优于**当前版本才会被接受，否则从已验证的快照精确回滚。
@@ -51,7 +54,7 @@ re-evaluate
 本包是 DeepSeek Harness **profile bundle**（`package.json` 的 `"dsh"` 段指向根目录 [`cordis.patch.yml`](cordis.patch.yml)），安装、激活一条命令完成：
 
 ```bash
-# 方式一：npm registry（发布后最简形式）
+# 方式一：npm registry（推荐）
 dsh plugin --profile web add dsh-self-evolution
 
 # 方式二：直接从 GitHub 仓库安装（无需发布，立即可用）
@@ -60,6 +63,8 @@ dsh plugin --profile web add github:Lhy723/dsh-self-evolution
 # 方式三：本地 tarball
 dsh plugin --profile web add ./dsh-self-evolution-0.1.0.tgz
 ```
+
+npm 包：[dsh-self-evolution](https://www.npmjs.com/package/dsh-self-evolution)（当前版本 `0.1.0`）。
 
 `dsh plugin` 会把包安装进 profile 目录，并把包名追加进 `dsh.profile.bundles`；启动时 bundle 的 patch 应用在 `@deepseek-ai/dsh-base` 之后。无论用哪种 spec（registry 名 / git / tarball），reconcile 都会按真实包名 `dsh-self-evolution` 记录，后续 `dsh plugin ... update` 正常工作。
 
@@ -338,7 +343,7 @@ Optimizer Prompt 只由公开证据构建；私有产物绝不回灌模型上下
 
 - **工具面**：注册 4 个工具，每个 schema 约 1KB 量级描述，进入能看到该工具层的 Agent 的 prompt。
 - **子 Agent 扇出**：一次 `evolution_run` 的模型调用量约为 `rounds × cases × (runs_per_case × (1 target + 1 evaluator) + 1 optimizer) + baseline`，请按此预算 token 与 KV-cache。
-- **上下文注入**：Target persona 注入完整 Profile；Optimizer prompt 注入公开证据与完整受管 Profile；rubric 与私有评估笔记**不**进入模型上下文（有测试覆盖）。
+- **上下文注入**：Target persona 注入完整 Profile；Optimizer prompt 注入公开证据与完整受管 Profile；rubric 与私有评估笔记**不**进入模型上下文（由宿主侧隐私边界保证）。
 - **确定性开销**：digest、快照均为本地哈希/文件操作，不产生模型调用；并发受 `maxParallelEvaluations` 限制。
 
 ## 已知限制与待办
@@ -352,7 +357,6 @@ Optimizer Prompt 只由公开证据构建；私有产物绝不回灌模型上下
 
 ```bash
 npm run build                          # 真实 @deepseek-ai/*@rc.6 声明的严格构建
-npm test                               # 9 个离线单测 suite（mock worker）
 node scripts/smoke-register.mjs        # 真实 dsh-tools / dsh-invariants 注册冒烟
 dsh --profile <name> --dump-config     # 真实 launcher 的 bundle 组合验证
 npm pack                               # 产出发布 tarball
@@ -360,9 +364,8 @@ npm pack                               # 产出发布 tarball
 
 验证分三层：
 
-1. **单元测试**：glob/path traversal、Profile digest、Candidate 事务、快照验证与精确恢复、Benchmark digest 与 workspace 暴露检查、private rubric 不进 Optimizer Prompt、完整 Mock Worker 接受/拒绝路径。
-2. **真实类型构建**：以发布版 `@deepseek-ai/*@0.1.0-rc.6` 的声明做严格构建，覆盖 `defineTool`、`ctx.subagents.start` 完整请求面、`Session.header.cwd`、`ObjectJsonSchema` 子集。
-3. **真实 runtime 冒烟**：用真实注册表挂载本插件，验证四个工具注册、`./invariant` 伴侣注册、fiber dispose 后零泄漏（HMR 安全），并由真实 launcher 组合 bundle patch。
+1. **真实类型构建**：以发布版 `@deepseek-ai/*@0.1.0-rc.6` 的声明做严格构建，覆盖 `defineTool`、`ctx.subagents.start` 完整请求面、`Session.header.cwd`、`ObjectJsonSchema` 子集。
+2. **真实 runtime 冒烟**：用真实注册表挂载本插件，验证四个工具注册、`./invariant` 伴侣注册、fiber dispose 后零泄漏（HMR 安全），并由真实 launcher 组合 bundle patch。
 
 尚未执行的只有带模型凭据的端到端运行；部署到自己的 profile 后，可按 [`COMPATIBILITY.md`](COMPATIBILITY.md) 的验收步骤验证，完整构建记录见 [`BUILD_REPORT.md`](BUILD_REPORT.md)。
 

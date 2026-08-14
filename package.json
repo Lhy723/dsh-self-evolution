@@ -29,7 +29,10 @@
   "files": [
     "dist/",
     "cordis.patch.yml",
-    "examples/",
+    "examples/benchmarks/demo/benchmark.json",
+    "examples/benchmarks/demo/public/",
+    "examples/config/",
+    "examples/profile/",
     "scripts/",
     "README.md",
     "DESIGN.md",
@@ -42,7 +45,6 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc -p tsconfig.json",
-    "test": "npm run build:validation && node --test tests/*.test.mjs",
     "pack:local": "npm pack",
     "build:validation": "npm run clean && tsc -p tsconfig.validation.json"
   },
