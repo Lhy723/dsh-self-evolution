@@ -16,7 +16,6 @@ validated against, so contributors and reviewers can reproduce the checks.
 ```bash
 npm install --no-save typescript@5.8.3   # toolchain only
 npm run build                             # strict build against real rc.6 declarations
-npm test                                  # 9 offline suites against dist
 node scripts/smoke-register.mjs           # registration smoke on real dsh-tools / dsh-invariants
 DSH_HOME=$PWD/.dsh-test dsh --profile smoke --dump-config   # real-launcher composition
 npm pack
@@ -37,7 +36,6 @@ registration smoke and the launcher check additionally need a `dsh` binary on
      checked at compile time with `satisfies`;
   4. `STATUS_SCHEMA.additionalProperties: false` so the inferred output type
      matches `StatusSummary`.
-- **Node test suites: 9 tests, 9 passed, 0 failed.**
 - **Real-runtime registration smoke: passed.** The four `evolution_*` tools
   register through the real `dsh-tools` registry (each schema therefore passes
   the real `assertSupportedJsonSchema` subset), the `./invariant` companion

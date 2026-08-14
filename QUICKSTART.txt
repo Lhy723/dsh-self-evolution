@@ -30,7 +30,7 @@ Next:
   alternative isolated agent-preset mount.
 
 Validation shipped with this release: strict TypeScript build against the
-published 0.1.0-rc.6 declarations, 9/9 Node tests, a real dsh-tools /
-dsh-invariants registration smoke, and a real-launcher --dump-config
-composition check. Live model runs require a profile with credentials; see
-COMPATIBILITY.md for the acceptance steps.
+published 0.1.0-rc.6 declarations, a real dsh-tools / dsh-invariants
+registration smoke, and a real-launcher --dump-config composition check.
+Live model runs require a profile with credentials; see COMPATIBILITY.md for
+the acceptance steps.

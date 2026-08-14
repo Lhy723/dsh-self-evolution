@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/social-preview.zh-CN.png" alt="dsh-self-evolution 中文社交预览图" width="100%">
+  <img src="https://raw.githubusercontent.com/Lhy723/dsh-self-evolution/main/docs/social-preview.zh-CN.png" alt="dsh-self-evolution 中文社交预览图" width="100%">
 </p>
 
 <p align="center">

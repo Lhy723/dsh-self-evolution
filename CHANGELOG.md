@@ -4,6 +4,17 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Fixed
+
+- Restore `examples/benchmarks/demo/private/` to the published package files,
+  so the shipped demo benchmark keeps its rubric files and runs out of the box.
+- README social-preview images now use absolute GitHub raw URLs, so they render
+  on the npm page as well as on GitHub.
+- Validation documents (`BUILD_REPORT`, `COMPATIBILITY`, `CHANGELOG`,
+  `QUICKSTART`) no longer reference the removed unit-test suite.
+
 ## 0.1.0 — 2026-08-14
 
 ### Added
@@ -25,7 +36,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - The module now ships only the default class export; the ambiguous extra
   `name` export was removed.
-- Build and tests validate against the published `@deepseek-ai/*@0.1.0-rc.6`
+- Build and the registration smoke validate against the published `@deepseek-ai/*@0.1.0-rc.6`
   type declarations, including a real-registry registration smoke test and a
   real-launcher `--dump-config` composition check.
 

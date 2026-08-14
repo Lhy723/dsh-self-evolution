@@ -30,6 +30,7 @@
     "dist/",
     "cordis.patch.yml",
     "examples/benchmarks/demo/benchmark.json",
+    "examples/benchmarks/demo/private/",
     "examples/benchmarks/demo/public/",
     "examples/config/",
     "examples/profile/",

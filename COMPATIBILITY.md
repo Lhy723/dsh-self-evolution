@@ -23,7 +23,6 @@ The package declares DeepSeek Harness `0.1.0-rc.5` peers for the DSH packages an
 ## Validation performed
 
 - Strict TypeScript build completed with TypeScript 5.8.3 against the real `@deepseek-ai/*@0.1.0-rc.6` type declarations (the registry resolves the whole rc.6 family), not offline mock shapes. Fixes required by the real surface: activating the `ctx.subagents` Context augmentation, real `ContentBlock`/`ObjectJsonSchema` types, and a real-inference-correct `STATUS_SCHEMA`.
-- Nine Node test cases passed (offline mock worker suites, same build as shipped).
 - Real-runtime registration smoke (`scripts/smoke-register.mjs`) passed against the real `dsh-tools` registry and `dsh-invariants` registry: the four `evolution_*` tools register (so every tool schema passes the real `assertSupportedJsonSchema` subset), the `./invariant` companion registers, and disposing the plugin fiber removes every registration (HMR-safe).
 - Bundle composition verified with the real launcher: `dsh --profile smoke --dump-config` (DSH_HOME pointing at this repository's `.dsh-test`) composes `@deepseek-ai/dsh-base` plus this package's `cordis.patch.yml` and prints the `self-evolution` row under `# == dsh-self-evolution`, with no skipped-patch warnings.
 - Live model runs were not part of this validation (no model endpoint or credentials in the validation environment). The remaining end-to-end checks are listed below; run them in your own deployment with its provider, sandbox, persistence, and approval policy.
