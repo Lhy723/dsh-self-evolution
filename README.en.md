@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Lhy723/dsh-self-evolution/main/docs/social-preview.png" alt="dsh-self-evolution social preview" width="100%">
+  <img src="https://raw.githubusercontent.com/Lhy723/dsh-self-evolution/main/docs/social-preview.jpg" alt="dsh-self-evolution social preview" width="100%">
 </p>
 
 <h1 align="center">dsh-self-evolution</h1>
