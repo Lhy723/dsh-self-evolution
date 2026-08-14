@@ -1,10 +1,12 @@
 <p align="center">
-  <img src="docs/social-preview.png" alt="dsh-self-evolution social preview" width="100%">
+  <img src="docs/social-preview.zh-CN.png" alt="dsh-self-evolution 中文社交预览图" width="100%">
 </p>
 
 <p align="center">
-  <b>dsh-self-evolution</b>
+  <a href="README.en.md">English</a> · 简体中文
 </p>
+
+<h1 align="center">dsh-self-evolution</h1>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
